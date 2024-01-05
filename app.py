@@ -35,7 +35,7 @@ st.sidebar.markdown("Senior Consultant, Kearney & Company")
 st.sidebar.divider()
 
 # File uploader for CSV, XLS, XLSX
-uploaded_file = st.file_uploader("Upload your file", type=["csv", "xls", "xlsx"])
+uploaded_file = st.sidebar.file_uploader("Upload your file", type=["csv", "xls", "xlsx"])
 
 if uploaded_file is not None:
     # Determine the file type
