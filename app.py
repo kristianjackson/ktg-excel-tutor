@@ -33,7 +33,7 @@ st.sidebar.divider()
 st.sidebar.markdown("Kristian Jackson", unsafe_allow_html=True)
 st.sidebar.markdown("Senior Consultant, Kearney & Company")
 st.sidebar.divider()
-
+print("checking if print works")
 # File uploader for CSV, XLS, XLSX
 uploaded_file = st.sidebar.file_uploader("Upload your file", type=["csv", "xls", "xlsx"])
 
