@@ -33,14 +33,14 @@ st.sidebar.divider()
 st.sidebar.markdown("Kristian Jackson", unsafe_allow_html=True)
 st.sidebar.markdown("Senior Consultant, Kearney & Company")
 st.sidebar.divider()
-print("checking if print works")
+
 # File uploader for CSV, XLS, XLSX
 uploaded_file = st.sidebar.file_uploader("Upload your file", type=["csv", "xls", "xlsx"])
 
 if uploaded_file is not None:
     # Determine the file type
     file_type = uploaded_file.type
-    print("Trying to upload file")
+    st.echo("Trying to upload file")
     try:
         # Read the file into a Pandas DataFrame
         if file_type == "text/csv":
@@ -54,7 +54,7 @@ if uploaded_file is not None:
         # Convert DataFrame to JSON
         json_str = df.to_json(orient="records", indent=4)
         file_stream = io.BytesIO(json_str.encode())
-        print("file converted to JSON")
+        
         # Upload JSON data to OpenAI and store the file ID
         file_response = client.files.create(file=file_stream, purpose="answers")
         st.session_state.file_id = file_response.id
