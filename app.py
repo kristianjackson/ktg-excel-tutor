@@ -7,6 +7,8 @@ import pandas as pd
 import io
 from openai import OpenAI
 
+from kpj_utils import display_session_state_data
+
 # Initialize OpenAI client
 client = OpenAI()
 
@@ -35,7 +37,9 @@ st.sidebar.markdown("Senior Consultant, Kearney & Company")
 st.sidebar.divider()
 
 # File uploader for CSV, XLS, XLSX
-uploaded_file = st.sidebar.file_uploader("Upload your file", type=["csv", "xls", "xlsx"])
+uploaded_file = st.sidebar.file_uploader(
+    "Upload your file", type=["csv", "xls", "xlsx"]
+)
 
 if uploaded_file is not None:
     # Determine the file type
@@ -98,7 +102,7 @@ elif (
                     st.markdown(message_text)
 
 # Chat input and message creation with file ID
-if prompt := st.chat_input("How can I help you?"):
+if prompt := st.chat_input("Input"):
     with st.chat_message("user"):
         st.write(prompt)
 
@@ -151,3 +155,5 @@ if hasattr(st.session_state.run, "status"):
         if st.session_state.retry_error < 3:
             time.sleep(3)
             st.rerun()
+# Display the session data
+display_session_state_data()
