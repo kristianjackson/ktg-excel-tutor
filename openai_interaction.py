@@ -2,9 +2,9 @@
 # Functions to interact with the OpenAI API
 
 import streamlit as st
-from openai import OpenAI
+import openai
 
-client = OpenAI()
+client = openai.OpenAI()
 
 
 def initialize_openai_assistant():
