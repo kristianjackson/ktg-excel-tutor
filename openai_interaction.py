@@ -8,7 +8,7 @@ client = OpenAI()
 
 
 def initialize_openai_assistant():
-    openai.api_key = config.OPENAI_API_KEY
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
     st.session_state.assistant = openai.beta.assistants.retrieve(
         st.secrets["OPENAI_ASSISTANT"]
     )
