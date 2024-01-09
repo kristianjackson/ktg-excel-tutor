@@ -3,7 +3,6 @@
 
 import streamlit as st
 from openai import OpenAI
-import config
 
 client = OpenAI()
 

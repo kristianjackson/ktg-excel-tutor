@@ -8,7 +8,6 @@ from openai import OpenAI
 import data_handling
 import openai_interaction
 import ui_components
-import config
 
 
 def initialize_session_state():
